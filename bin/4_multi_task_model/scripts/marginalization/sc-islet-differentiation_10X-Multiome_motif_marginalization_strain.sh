@@ -1,15 +1,15 @@
 #!/bin/bash
 #####
-# MT motif marginalization for the MC strain catalog.
+# MT motif marginalization for the MC cluster catalog.
 # Differences vs v3:
-#   - motif catalog = motifs_compendium_strain/combined_mapped.meme (151 motifs)
+#   - motif catalog = motif_compendium_cluster/combined_mapped.meme (151 motifs)
 #   - outputs to crested/marginalization_strain/{CT}/
 # Otherwise identical (finetuned_v2 checkpoint, k=2 shuffled per-CT background peaks).
 #
 # Submit as a 22-CT array (concurrency 4):
 #   sbatch --partition=carter-gpu --account=carter-gpu --gres=gpu:a30:1 \
 #     --cpus-per-task=4 --mem=32G --time=14-00:00:00 \
-#     --array=1-22%4 --job-name=pr_marg_strain \
+#     --array=1-22%4 --job-name=pr_marg_cluster \
 #     --output=$BIN/slurm_logs/4_multi_task_model/%x.%A.%a.out \
 #     <this>.sh
 #####
@@ -39,7 +39,7 @@ n_seqs=100
 
 python ${SCRIPT} \
     --model ${BASE}/crested/finetuned_v2/checkpoints/28.keras \
-    --motif_file ${BASE}/crested/motifs_compendium_strain/combined_mapped.meme \
+    --motif_file ${BASE}/crested/motif_compendium_cluster/combined_mapped.meme \
     --genome_fasta /cellar/users/aklie/data/ref/genomes/hg38/hg38.fa \
     --peaks ${PEAK_DIR}/${celltype}.narrowPeak \
     --adata ${BASE}/crested/contributions_specific_v2/adata_with_predictions.h5ad \

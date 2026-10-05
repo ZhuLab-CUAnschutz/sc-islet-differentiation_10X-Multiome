@@ -1,8 +1,8 @@
 #!/bin/bash
 #####
-# Motif hit calling against the MC-built catalog (sign-aware, motifs_compendium_strain/).
+# Motif hit calling against the MC-built catalog (sign-aware, motif_compendium_cluster/).
 # Mirrors motif_hits_all_peaks.sh but reads contributions from
-# contributions_all_peaks/ and writes hits to motifs_compendium_strain/hits/.
+# contributions_all_peaks/ and writes hits to motif_compendium_cluster/hits/.
 #####
 date
 echo -e "Job ID: $SLURM_JOB_ID, Array Task: $SLURM_ARRAY_TASK_ID\n"
@@ -25,11 +25,11 @@ OH=${BASE}/results/4_multi_task_model/crested/contributions_all_peaks/${celltype
 CONTRIB=${BASE}/results/4_multi_task_model/crested/contributions_all_peaks/${celltype}_contrib.npz
 
 # MC-built catalog (replaces motifs_all_peaks/ for this hit-calling pass)
-modisco_h5=${BASE}/results/4_multi_task_model/crested/motifs_compendium_strain/clustered_motifs.modisco.h5
-name_map=${BASE}/results/4_multi_task_model/crested/motifs_compendium_strain/clustered_motifs_name_map_unique.tsv
+modisco_h5=${BASE}/results/4_multi_task_model/crested/motif_compendium_cluster/clustered_motifs.modisco.h5
+name_map=${BASE}/results/4_multi_task_model/crested/motif_compendium_cluster/clustered_motifs_name_map_unique.tsv
 window=400
 
-output_dir=${BASE}/results/4_multi_task_model/crested/motifs_compendium_strain/hits/${celltype}
+output_dir=${BASE}/results/4_multi_task_model/crested/motif_compendium_cluster/hits/${celltype}
 mkdir -p $output_dir
 echo "Output: $output_dir"
 

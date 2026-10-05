@@ -1,4 +1,4 @@
-"""Phase 7.3 — render a Fig-3e-style family-rollup HTML for the MC strain catalog.
+"""Phase 7.3 — render a Fig-3e-style family-rollup HTML for the MC cluster catalog.
 
 Conceptually matches Liu et al. 2026 Fig 3e: one row per BROAD FAMILY GROUP,
 aggregating across the cluster_final motifs that share a primary TF family.
@@ -520,8 +520,8 @@ def render_html(table: pd.DataFrame, h5: h5py.File, ppms: dict[str, np.ndarray],
     out_html.parent.mkdir(parents=True, exist_ok=True)
     out_html.write_text(
         "<!doctype html><html><head><meta charset='utf-8'>"
-        f"<title>MC strain Fig 3e summary</title><style>{CSS}</style></head>"
-        f"<body><h1>MC strain catalog — Fig 3e-style family summary</h1>"
+        f"<title>MC cluster Fig 3e summary</title><style>{CSS}</style></head>"
+        f"<body><h1>MC cluster catalog — Fig 3e-style family summary</h1>"
         f"<div class='meta'>{len(table)} family groups · "
         f"{int(table['n_variants'].sum())} cluster_final motifs · "
         f"{int(table['total_hits'].sum()):,} total hits across 22 cell types</div>"

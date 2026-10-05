@@ -1,10 +1,10 @@
 #!/bin/bash
 #####
-# Per-CT motif-hit genomic-context annotation (Phase 7.2 of MC strain pipeline).
+# Per-CT motif-hit genomic-context annotation (Phase 7.2 of MC cluster pipeline).
 # Submit as a 22-CT array (concurrency 8):
 #   sbatch --partition=carter-compute --account=carter-compute \
 #     --cpus-per-task=4 --mem=8G --time=01:00:00 \
-#     --array=1-22%8 --job-name=pr_annot_strain \
+#     --array=1-22%8 --job-name=pr_annot_cluster \
 #     --output=$BIN/slurm_logs/4_multi_task_model/%x.%A_%a.out \
 #     <this>.sh
 #####
@@ -24,7 +24,7 @@ PY=/cellar/users/aklie/opt/miniconda3/envs/eugene_tools/bin/python
 SCRIPT=/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/bin/4_multi_task_model/scripts/annotation/annotate_motif_hits_per_ct.py
 BASE=/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome
 # Catalog dir: pass as $1 to target a non-default catalog (e.g. ST gimme).
-CAT=${1:-${BASE}/results/4_multi_task_model/crested/motifs_compendium_strain}
+CAT=${1:-${BASE}/results/4_multi_task_model/crested/motif_compendium_cluster}
 echo "Catalog: $CAT"
 
 HITS_TSV=${CAT}/hits/${celltype}/hits.tsv

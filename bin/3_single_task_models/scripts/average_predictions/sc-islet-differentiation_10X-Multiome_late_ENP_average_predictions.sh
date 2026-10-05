@@ -22,15 +22,15 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cellar/users/aklie/opt/miniconda3/envs/
 # file lists
 celltype=late_ENP
 bias_preds=(
-	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/late_ENP/fold_0/chrombpnet/0.5/predictions/late_ENP_bias.bw
+	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/late_ENP/fold_0/chrombpnet/0.5/predictions/late_ENP_bias.bw
 )
 chrombpnet_nobias_preds=(
-	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/late_ENP/fold_0/chrombpnet/0.5/predictions/late_ENP_chrombpnet_nobias.bw
+	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/late_ENP/fold_0/chrombpnet/0.5/predictions/late_ENP_chrombpnet_nobias.bw
 )
 chrombpnet_preds=(
-	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/late_ENP/fold_0/chrombpnet/0.5/predictions/late_ENP_chrombpnet.bw
+	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/late_ENP/fold_0/chrombpnet/0.5/predictions/late_ENP_chrombpnet.bw
 )
-output_dir=/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/late_ENP/average/predictions
+output_dir=/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/late_ENP/average/predictions
 
 # echo the celltype and peak
 echo -e "Celltype: $celltype"

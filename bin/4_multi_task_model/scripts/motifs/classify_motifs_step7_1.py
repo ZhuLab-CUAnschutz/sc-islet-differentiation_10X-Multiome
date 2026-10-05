@@ -1,4 +1,4 @@
-"""Step 7.1 — classify motifs in motifs_compendium_strain/ per Liu et al. 2026 Fig 3d.
+"""Step 7.1 — classify motifs in motif_compendium_cluster/ per Liu et al. 2026 Fig 3d.
 
 Categories (per paper Fig 3d):
   base               — single canonical TF binding site
@@ -19,7 +19,7 @@ Algorithm:
   4. Classify on slot count + family overlap + effective width.
 
 Output:
-  results/.../motifs_compendium_strain/qc/motif_classification.tsv
+  results/.../motif_compendium_cluster/qc/motif_classification.tsv
     columns: name, posneg, category, n_slots, slot_families, effective_width,
              primary_family, primary_subname, primary_evalue
 """

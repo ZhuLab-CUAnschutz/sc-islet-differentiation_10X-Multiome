@@ -4,7 +4,7 @@ compendium itself) for marginalization. This is the `consensus` motif set.
 Reuses the validated block()/parser from build_inputs_from_mc.py
 (export_compendium_meme inverse_ic=True + clip/normalize).
 
-Query written to .../gimme_cluster/marginalization/consensus/query.meme;
+Query written to .../marginalization/mc_catalog/query.meme;
 consumed by marginalize_consensus.sh.
 """
 from __future__ import annotations
@@ -18,7 +18,7 @@ import MotifCompendium.utils.analysis as ua
 sys.path.insert(0, str(Path(__file__).parent))
 from build_inputs_from_mc import parse_ppm_meme, block, HEADER, MC, MARG  # reuse validated helpers
 
-INP = MARG / "consensus"      # query.meme + consensus_meta.tsv land here
+INP = MARG / "mc_catalog"      # query.meme + consensus_meta.tsv land here
 
 
 def main():

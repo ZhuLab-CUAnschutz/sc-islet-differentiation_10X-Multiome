@@ -1,4 +1,4 @@
-"""Per-CT motif-hit genomic-context annotator (Phase 7.2 of MC strain pipeline).
+"""Per-CT motif-hit genomic-context annotator (Phase 7.2 of MC cluster pipeline).
 
 For one CT's hits.tsv (from finemo), compute per hit:
   - distance to nearest TSS (signed bp; matches Liu 2026 Methods)

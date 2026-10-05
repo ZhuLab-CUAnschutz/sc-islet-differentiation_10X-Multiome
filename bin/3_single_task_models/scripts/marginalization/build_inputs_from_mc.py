@@ -12,7 +12,7 @@ Writes consensus + constituent PPMs for every MULTI-constituent cluster (>=2) in
 plus manifest.json. Names are filesystem-safe and self-consistent across MEME/marg/tomtom/render.
 
 This is the `constituent` motif set (751 motifs). Query written to
-.../gimme_cluster/marginalization/constituent/query.meme; consumed by marginalize_global.sh.
+.../marginalization/constituent/query.meme; consumed by marginalize_global.sh.
 """
 from __future__ import annotations
 import json, re, tempfile
@@ -23,8 +23,8 @@ import MotifCompendium
 import MotifCompendium.utils.analysis as ua
 
 RESULTS = Path("/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models")
-MC = RESULTS / "motifs" / "motifs_compendium_strain"
-MARG = RESULTS / "motifs" / "gimme_cluster" / "marginalization"
+MC = RESULTS / "motifs" / "motif_compendium_cluster"
+MARG = RESULTS / "marginalization"      # top-level, split by motif set
 INP = MARG / "constituent"      # query.meme + manifest.json land here
 HEADER = ("MEME version 4\n\nALPHABET= ACGT\n\nstrands: + -\n\n"
           "Background letter frequencies\nA 0.25 C 0.25 G 0.25 T 0.25\n\n")

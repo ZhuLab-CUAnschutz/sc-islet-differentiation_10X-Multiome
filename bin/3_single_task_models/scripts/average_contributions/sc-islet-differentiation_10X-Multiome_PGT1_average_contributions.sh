@@ -22,18 +22,18 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cellar/users/aklie/opt/miniconda3/envs/
 # Define input files
 celltype=PGT1
 counts=(
-	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/PGT1/fold_0/chrombpnet/0.5/contributions/PGT1.counts_scores.bw
+	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/PGT1/fold_0/chrombpnet/0.5/contributions/PGT1.counts_scores.bw
 )
 profile=(
-	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/PGT1/fold_0/chrombpnet/0.5/contributions/PGT1.profile_scores.bw
+	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/PGT1/fold_0/chrombpnet/0.5/contributions/PGT1.profile_scores.bw
 )
 counts_h5=(
-	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/PGT1/fold_0/chrombpnet/0.5/contributions/PGT1.counts_scores.h5
+	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/PGT1/fold_0/chrombpnet/0.5/contributions/PGT1.counts_scores.h5
 )
 profile_h5=(
-	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/PGT1/fold_0/chrombpnet/0.5/contributions/PGT1.profile_scores.h5
+	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/PGT1/fold_0/chrombpnet/0.5/contributions/PGT1.profile_scores.h5
 )
-output_dir=/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/PGT1/average/contributions
+output_dir=/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/PGT1/average/contributions
 window=400
 
 # Create output directory

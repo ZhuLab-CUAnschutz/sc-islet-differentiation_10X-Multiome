@@ -22,18 +22,18 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cellar/users/aklie/opt/miniconda3/envs/
 # Define input files
 celltype=early_SC_beta
 counts=(
-	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/early_SC_beta/fold_0/chrombpnet/0.5/contributions/early_SC_beta.counts_scores.bw
+	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/early_SC_beta/fold_0/chrombpnet/0.5/contributions/early_SC_beta.counts_scores.bw
 )
 profile=(
-	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/early_SC_beta/fold_0/chrombpnet/0.5/contributions/early_SC_beta.profile_scores.bw
+	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/early_SC_beta/fold_0/chrombpnet/0.5/contributions/early_SC_beta.profile_scores.bw
 )
 counts_h5=(
-	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/early_SC_beta/fold_0/chrombpnet/0.5/contributions/early_SC_beta.counts_scores.h5
+	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/early_SC_beta/fold_0/chrombpnet/0.5/contributions/early_SC_beta.counts_scores.h5
 )
 profile_h5=(
-	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/early_SC_beta/fold_0/chrombpnet/0.5/contributions/early_SC_beta.profile_scores.h5
+	/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/early_SC_beta/fold_0/chrombpnet/0.5/contributions/early_SC_beta.profile_scores.h5
 )
-output_dir=/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/early_SC_beta/average/contributions
+output_dir=/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models/early_SC_beta/average/contributions
 window=400
 
 # Create output directory

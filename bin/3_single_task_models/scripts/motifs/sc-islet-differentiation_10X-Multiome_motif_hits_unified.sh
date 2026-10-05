@@ -89,8 +89,8 @@ input_h5s=(
 )
 
 # Unified motif catalog
-modisco_h5=/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/motifs/gimme_cluster/clustered_motifs.modisco.h5
-name_map=/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/motifs/gimme_cluster/clustered_motifs_name_map.tsv
+modisco_h5=/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/motifs/gimme_cluster/cluster/clustered_motifs.modisco.h5
+name_map=/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/motifs/gimme_cluster/cluster/clustered_motifs_name_map.tsv
 window=400
 
 # SLURM task-specific values

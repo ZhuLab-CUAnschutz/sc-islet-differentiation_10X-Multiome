@@ -1,6 +1,6 @@
-"""Rebuild MC strain catalog naming after the prior fix-script bug.
+"""Rebuild MC cluster catalog naming after the prior fix-script bug.
 
-What happened: my Phase 7.2 fix script (fix_mc_strain_catalog.py) paired
+What happened: my Phase 7.2 fix script (fix_mc_cluster_catalog.py) paired
 sorted-alphabetically h5 keys (cluster_final#0, #10, #100, #101, #11, ...) with
 display names parsed from step 5.3's MEME (which was written in cluster-id
 NUMERICAL order: #0, #1, #2, ...). Result: every name_map row past index 0
@@ -32,7 +32,7 @@ from pathlib import Path
 from collections import Counter
 import h5py, numpy as np, pandas as pd
 
-CAT = Path('/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/4_multi_task_model/crested/motifs_compendium_strain')
+CAT = Path('/cellar/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/4_multi_task_model/crested/motif_compendium_cluster')
 H5  = CAT / 'clustered_motifs.modisco.h5'
 TOMTOM_DIR = CAT / 'tomtom'
 TOMTOM_E_THRESH = 10.0       # matches step 5.3 strict-E for naming
