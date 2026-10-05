@@ -1,0 +1,24 @@
+# Trimmed spec of the env used for the bin/6_synergy runs (narrows: envs/eugene_tools).
+# Versions pinned from `pip freeze` of the working env. bpnet-lite is Adam's fork at the exact commit used.
+# torch: pick the CUDA build that matches your cluster (cu121 was used here).
+name: eugene_tools
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - torch==2.4.1
+      - tangermeme==1.0.3
+      - git+https://github.com/adamklie/bpnet-lite.git@768240e4d645e977b04a3a004341c3e06e915c40   # 0.8.1 + marginalize dump
+      - numpy==1.26.4
+      - pandas==1.5.3
+      - scipy==1.14.1
+      - scikit-learn==1.5.2
+      - seaborn==0.13.2
+      - matplotlib==3.9.2
+      - logomaker==0.8
+      - pyfaidx==0.8.1.2
+      - h5py==3.12.1
+      - openpyxl==3.1.5
