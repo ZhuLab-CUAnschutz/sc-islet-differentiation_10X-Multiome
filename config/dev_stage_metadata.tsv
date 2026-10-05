@@ -1,0 +1,9 @@
+dev_stage	color	display_order
+DE	#35b779	1
+GT	#b2182b	2
+PFG	#3b4cc0	3
+PE	#e7298a	4
+ENP	#7fbf3f	5
+SC_immature	#bcbd22	6
+SC_mature	#4a90d9	7
+non_pancreatic	#999999	8

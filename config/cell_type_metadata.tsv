@@ -1,23 +1,23 @@
-cell_type	grouping	color	display_order	stage	endocrine
-DE	definitive_endoderm	#f4a582	1	D4	non_endocrine
-PGT1	posterior_gut_tube	#d6604d	2	D7	non_endocrine
-PGT2	posterior_gut_tube	#b2182b	3	D7	non_endocrine
-PGT3	posterior_gut_tube	#67001f	4	D7	non_endocrine
-PFG1	posterior_foregut	#fdae61	5	D9	non_endocrine
-PFG2	posterior_foregut	#f46d43	6	D9	non_endocrine
-PP1	pancreatic_progenitor	#fee08b	7	D9	non_endocrine
-PP2	pancreatic_progenitor	#d4b13f	8	D9	non_endocrine
-ENP_phase1	endocrine_progenitor	#66c2a5	9	D15	endocrine
-early_ENP	endocrine_progenitor	#3288bd	10	D12	endocrine
-late_ENP	endocrine_progenitor	#1a5276	11	D15	endocrine
-early_SC_beta	SC_beta	#5e4fa2	12	D22	endocrine
-late_SC_beta	SC_beta	#3b2d7e	13	D45	endocrine
-early_SC_alpha	SC_alpha	#e41a1c	14	D22	endocrine
-late_SC_alpha	SC_alpha	#a50f15	15	D45	endocrine
-early_SC_EC	SC_EC	#4daf4a	16	D22	endocrine
-late_SC_EC	SC_EC	#276419	17	D45	endocrine
-SC_delta_GHRL	SC_delta	#ff7f00	18	D45	endocrine
-proliferating_endocrine	proliferating	#984ea3	19	D15	endocrine
-exocrine	non_pancreatic	#999999	20	D45	non_endocrine
-liver	non_pancreatic	#a65628	21	D45	non_endocrine
-FB_FLT1	non_pancreatic	#e7969c	22	D45	non_endocrine
+cell_type	grouping	color	display_order	stage	endocrine	dev_stage	lineage
+DE	definitive_endoderm	#f4a582	1	D4	non_endocrine	DE	progenitor
+PGT1	posterior_gut_tube	#d6604d	2	D7	non_endocrine	GT	progenitor
+PGT2	posterior_gut_tube	#b2182b	3	D7	non_endocrine	GT	progenitor
+PGT3	posterior_gut_tube	#67001f	4	D7	non_endocrine	GT	progenitor
+PFG1	posterior_foregut	#fdae61	5	D9	non_endocrine	PFG	progenitor
+PFG2	posterior_foregut	#f46d43	6	D9	non_endocrine	PFG	progenitor
+PP1	pancreatic_progenitor	#fee08b	7	D9	non_endocrine	PE	progenitor
+PP2	pancreatic_progenitor	#d4b13f	8	D9	non_endocrine	PE	progenitor
+ENP_phase1	endocrine_progenitor	#66c2a5	9	D15	endocrine	ENP	endocrine_progenitor
+early_ENP	endocrine_progenitor	#3288bd	10	D12	endocrine	ENP	endocrine_progenitor
+late_ENP	endocrine_progenitor	#1a5276	11	D15	endocrine	ENP	endocrine_progenitor
+early_SC_beta	SC_beta	#5e4fa2	12	D22	endocrine	SC_immature	beta
+late_SC_beta	SC_beta	#3b2d7e	13	D45	endocrine	SC_mature	beta
+early_SC_alpha	SC_alpha	#e41a1c	14	D22	endocrine	SC_immature	alpha
+late_SC_alpha	SC_alpha	#a50f15	15	D45	endocrine	SC_mature	alpha
+early_SC_EC	SC_EC	#4daf4a	16	D22	endocrine	SC_immature	EC
+late_SC_EC	SC_EC	#276419	17	D45	endocrine	SC_mature	EC
+SC_delta_GHRL	SC_delta	#ff7f00	18	D45	endocrine	SC_mature	delta
+proliferating_endocrine	proliferating	#984ea3	19	D15	endocrine	ENP	endocrine_progenitor
+exocrine	non_pancreatic	#999999	20	D45	non_endocrine	non_pancreatic	non_pancreatic
+liver	non_pancreatic	#a65628	21	D45	non_endocrine	non_pancreatic	non_pancreatic
+FB_FLT1	non_pancreatic	#e7969c	22	D45	non_endocrine	non_pancreatic	non_pancreatic

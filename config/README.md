@@ -6,9 +6,11 @@ Configuration files and helper utilities for the SC-islet differentiation 10X Mu
 
 | File | Description |
 |------|-------------|
-| `cell_type_metadata.tsv` | Cell types, groupings, colors, and display order |
+| `cell_type_metadata.tsv` | Cell types, groupings, colors, display order, stage, endocrine, dev_stage, lineage |
 | `stage_metadata.tsv` | Differentiation stages, colors, and display order |
 | `endocrine_metadata.tsv` | Endocrine classification, colors, and display order |
+| `lineage_metadata.tsv` | Lineage facet (progenitor, endocrine_progenitor, beta, alpha, EC, delta, non_pancreatic): colors + order |
+| `dev_stage_metadata.tsv` | Developmental-stage facet (DE, GT, PFG, PE, ENP, SC_immature, SC_mature, non_pancreatic): colors + order |
 | `batch_metadata.tsv` | Differentiation batches, colors, and display order |
 | `loader.py` | Python helper for loading configs and metadata |
 
