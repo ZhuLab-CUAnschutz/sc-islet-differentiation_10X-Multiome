@@ -1,0 +1,34 @@
+# Map our 22 in-vitro cell types -> Decima atlas tracks, using the REAL decima 0.7.2
+# metadata vocabulary (obs['cell_type'] x obs['tissue'] x obs['organ']).
+#
+# KEY FINDING: Decima's atlas collapses ALL pancreatic islet endocrine cells into a single
+# coarse label `enteroendocrine cell` (tissue 'islet of Langerhans'/'pancreas'). There is NO
+# separate beta/alpha/delta/EC. So our endocrine subtypes below all map to the SAME tracks and
+# zero-shot Decima cannot distinguish them (across-track specificity among them ~ 0). That gap
+# is exactly what fine-tuning our 22 resolved states is meant to fill.
+#
+# decima_cell_type : exact value in obs['cell_type']. tissue_query/organ_query: optional '|'-sep
+# substring filters. Healthy/NA-disease tracks are preferred automatically. Matched tracks are averaged.
+our_cell_type	decima_cell_type	tissue_query	organ_query	confidence	notes
+DE	progenitor cell		gut	low	definitive endoderm; gut progenitor as weak analog
+PGT1	enterocyte		gut	low	posterior gut tube -> intestinal epithelium
+PGT2	enterocyte		gut	low	posterior gut tube
+PGT3	enterocyte		gut	low	posterior gut tube
+PFG1	progenitor cell		gut	low	posterior foregut; no clean analog
+PFG2	progenitor cell		gut	low	posterior foregut
+PP1	progenitor cell	islet of Langerhans|pancreas	pancreas	low	PDX1+/NKX6-1+ pancreatic progenitor
+PP2	progenitor cell	islet of Langerhans|pancreas	pancreas	low	pancreatic progenitor
+ENP_phase1	enteroendocrine cell	islet of Langerhans|pancreas	pancreas	low	endocrine progenitor -> collapsed endocrine label
+early_ENP	enteroendocrine cell	islet of Langerhans|pancreas	pancreas	low	endocrine progenitor
+late_ENP	enteroendocrine cell	islet of Langerhans|pancreas	pancreas	low	endocrine progenitor
+early_SC_beta	enteroendocrine cell	islet of Langerhans|pancreas	pancreas	medium	COLLAPSED with alpha/EC/delta in atlas
+late_SC_beta	enteroendocrine cell	islet of Langerhans|pancreas	pancreas	medium	primary design target; COLLAPSED endocrine label
+early_SC_alpha	enteroendocrine cell	islet of Langerhans|pancreas	pancreas	medium	COLLAPSED (same tracks as beta)
+late_SC_alpha	enteroendocrine cell	islet of Langerhans|pancreas	pancreas	medium	primary design target; COLLAPSED
+early_SC_EC	enteroendocrine cell	islet of Langerhans|pancreas	pancreas	medium	COLLAPSED (same tracks as beta/alpha)
+late_SC_EC	enteroendocrine cell	islet of Langerhans|pancreas	pancreas	medium	primary design target; COLLAPSED
+SC_delta_GHRL	enteroendocrine cell	islet of Langerhans|pancreas	pancreas	medium	SST/GHRL+; COLLAPSED
+proliferating_endocrine	enteroendocrine cell	islet of Langerhans|pancreas	pancreas	low	cycling endocrine; COLLAPSED
+exocrine	secretory cell	exocrine pancreas	pancreas	medium	acinar/exocrine -> secretory cell in exocrine pancreas
+liver	hepatocyte		liver	medium	off-target lineage; clean analog
+FB_FLT1	fibroblast		pancreas	low	FLT1 endothelial marker; fibroblast/endothelial ambiguous
