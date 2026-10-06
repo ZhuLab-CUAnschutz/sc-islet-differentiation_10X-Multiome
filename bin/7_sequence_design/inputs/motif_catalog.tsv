@@ -1,0 +1,75 @@
+motif_name	short_id	label	tf	category	width
+Average_131	ST01	ST01_ZNF143	ZNF143	Base	25
+Average_168	ST02	ST02_REST	REST	Base	18
+Average_664	ST03	ST03_CTCF	CTCF	Base	14
+Average_655	ST04	ST04_SOX9	SOX9	Base	17
+ST05_sub1	ST05_sub1	ST05_sub1_HNF4A_G	HNF4G	Base	20
+ST05_sub2	ST05_sub2	ST05_sub2_RARB	RARB	Base	27
+Average_525	ST06	ST06_NFYB	NFYB	Base	7
+Average_609	ST07	ST07_TEAD_family	TEAD4	Homocomposite	23
+Average_644	ST08	ST08_FEV	FEV	Homocomposite	24
+Average_662	ST09	ST09_NEUROD1	NEUROD1	Base	14
+Average_614	ST10	ST10_MAFB	MAFB	Base with flank	12
+Average_501	ST11	ST11_SIX4	SIX4	Base	13
+Average_658	ST12	ST12_SALL4	SALL4	Base	34
+DE.counts.pattern_3.pfm	ST13	ST13_ZIC3	ZIC3	Partial	13
+Average_653	ST14	ST14_RFX3	RFX3	Base obligate homodimer	15
+Average_508	ST15	ST15_HNF1A	HNF1A	Base obligate homodimer	13
+Average_625	ST16	ST16_FOXA1_2	FOXA2	Base	12
+Average_591	ST17	ST17_ZBTB33	ZBTB33	Base	10
+DE.counts.pattern_22.pfm	ST18	ST18_EOMES	EOMES	Base	8
+Average_657	ST19	ST19_ATF3	ATF3	Base	14
+Average_597	ST20	ST20_RFX3	RFX3	Partial	13
+Average_617	ST21	ST21_GRHL2	GRHL2	Base with flank	22
+Average_590	ST22	ST22_YY1	YY1	Base	11
+Average_637	ST23	ST23_NRF1	NRF1	Base obligate homodimer	10
+Average_561	ST24	ST24_CREB5	CREB5	Base	12
+Average_645	ST25	ST25_FEV	FEV	Base	13
+Average_573	ST26	ST26_ARNTL	ARNTL	Base	10
+Average_654	ST27	ST27_GATA4_6	GATA4/6	Base	14
+Average_234	ST28	ST28_NFIA	NFIA	Base obligate homodimer	15
+Average_652	ST29	ST29_RELB	RELB	Base	25
+Average_661	ST30	ST30_OTX2	OTX2 	Base	17
+early_SC_EC.counts.pattern_14.pfm	ST31	ST31_RFX6	RFX6	Heterocomposite	18
+Average_663	ST32	ST32_ATF3	ATF3	Base	14
+early_SC_alpha.counts.pattern_33.pfm	ST33	ST33_PAX6	PAX6	Base	17
+liver.counts.pattern_11.pfm	ST34	ST34_FOXA1_2	FOXK1	Heterocomposite	17
+Average_587	ST35	ST35_ZNF143	ZNF143	Base	24
+ST36_sub1	ST36_sub1	ST36_sub1_MIXL1	MIXL1	Base	12
+ST36_sub2	ST36_sub2	ST36_sub2_ISL1	ISL1	Base	12
+ST36_sub3	ST36_sub3	ST36_sub3_LMX1A	LMX1A	Base	7
+ST36_sub4	ST36_sub4	ST36_sub4_PDX1_NKX6-1_MNX1	NKX6-1	Base	12
+PP2.counts.pattern_39.pfm	ST37	ST37_CTCF	CTCF	Base	20
+liver.counts.pattern_27.pfm	ST38	ST38_CEBP_family	CEBPD	Base	11
+DE.counts.pattern_38.pfm	ST39	ST39_POU2F1	POU2F1	Base	13
+Average_660	ST40	ST40_TEAD_family	TEAD4	Base	26
+liver.counts.pattern_26.pfm	ST41	ST41_MEIS1	MEIS1	Base	12
+Average_618	ST42	ST42_GATA4_6	MECOM	Homocomposite	21
+Average_566	ST43	ST43_FOXC1	FOXC1	Base	12
+liver.counts.pattern_23.pfm	ST44	ST44_SRF	SRF	Base	10
+early_ENP.counts.pattern_26.pfm	ST45	ST45_RFX6	RFX6	Heterocomposite	23
+Average_641	ST46	ST46_NKX2-2	NKX2-2	Base with flank	10
+Average_554	ST47	ST47_MAFB	MAFB	Base with flank	13
+liver.counts.pattern_32.pfm	ST48	ST48_FOXO3	FOXO3	Base with flank	9
+PGT2.counts.pattern_19.pfm	ST49	ST49_OTX2	OTX2 	Heterocomposite	13
+Average_651	ST50	ST50_FOXA1_2	FOXA2	Heterocomposite	18
+Average_608	ST51	ST51_FOXA1_2	FOXA2	Homocomposite	21
+Average_616	ST52	ST52_PDX1	PDX1	Base	9
+Average_571	ST53	ST53_unannotated	NA	NA	10
+Average_580	ST54	ST54_ONECUT1_2	ONECUT2	Base	8
+Average_436	ST55	ST55_FOXJ3	FOXJ3	Base with flank	19
+DE.counts.pattern_18.pfm	ST56	ST56_ZIC3	ZIC3	Base	13
+Average_630	ST57	ST57_ONECUT1_2	ONECUT1	Base	7
+Average_633	ST58	ST58_MZF1	MZF1	Unknown	24
+DE.counts.pattern_37.pfm	ST59	ST59_SALL4	SP1	Heterocomposite	16
+Average_613	ST60	ST60_CTCF	CTCF	Partial	14
+Average_623	ST61	ST61_NRF1	NRF1	Unknown	26
+Average_635	ST62	ST62_FEV	FEV	Base	14
+Average_636	ST63	ST63_REST	REST	Partial	17
+Average_642	ST64	ST64_ISL1	PAX6 (or ISL1)	Base with flank	14
+Average_656	ST65	ST65_FOXA2	FOXA2	Unknown	11
+DE.counts.pattern_35.pfm	ST66	ST66_SOX17	SOX17	Partial	7
+DE.counts.pattern_36.pfm	ST67	ST67_OTX2	OTX2 	Homocomposite	29
+late_SC_beta.counts.pattern_30.pfm	ST68	ST68_HNF1A	HNF1A	Partial	21
+liver.counts.pattern_21.pfm	ST69	ST69_unannotated	NA	NA	20
+PFG2.counts.pattern_21.pfm	ST70	ST70_unannotated	NA	NA	27
