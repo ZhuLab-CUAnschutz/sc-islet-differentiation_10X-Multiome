@@ -1,0 +1,55 @@
+# Variant-effect prediction on the 22 developmental cell types.
+# Paths and parameters are declared once here and read by every stage.
+# Edit the "Base locations" block for a new cluster; everything else is relative.
+
+seed: 1234
+ref_build: hg38
+catalog_version: v1.1
+
+# Base locations (absolute).
+repo: /carter/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome
+# Work dir: all inputs/results/figures for a run. Keeps the repo free of outputs.
+sandbox: /carter/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/8_variant_effects
+# Cell-type metadata + facet TSVs. Defaults to <repo>/config; set only to override.
+config_dir:
+genome: /carter/users/aklie/data/ref/genomes/hg38/hg38.fa
+chrom_sizes: /carter/users/aklie/data/ref/genomes/hg38/hg38.chrom.sizes
+model_root: /carter/users/aklie/data/datasets/sc-islet-differentiation_10X-Multiome/results/3_single_task_models/models
+scorer_dir: /carter/users/aklie/opt/variant-scorer/src
+
+# Model file relative to model_root/{cell_type}/.
+model_subpath: fold_0/chrombpnet/0.5/models/chrombpnet_nobias.h5
+
+# Inputs, relative to sandbox.
+credible_sets: inputs/credible_sets.tsv
+combined_bed: inputs/combined_credset.minimal.snps.chrombpnet.bed
+smoke_bed: inputs/smoke_100.bed
+
+# v1.1 called-hits catalog, relative to repo.
+catalog_dir: results/3_single_task_models/motifs/v1.1
+catalog_modisco_h5: results/3_single_task_models/motifs/v1.1/cluster/clustered_motifs.modisco.h5
+catalog_meme: results/3_single_task_models/motifs/v1.1/catalog.meme
+catalog_metadata: results/3_single_task_models/motifs/v1.1/metadata.tsv
+catalog_logos: results/3_single_task_models/motifs/v1.1/logos
+
+# Traits: key is the per-trait output dir; study is the report label.
+traits:
+  - {key: T1D,   study: T1D_Chiou_2021}
+  - {key: T2D,   study: T2D_DIAMANTE_multiancestry}
+  - {key: FG,    study: MAGIC_FG}
+  - {key: FI,    study: MAGIC_FI}
+  - {key: HbA1c, study: MAGIC_HbA1c}
+  - {key: 2hGlu, study: MAGIC_2hGlu}
+
+# Significance call on the per-SNP shuffled-null p-value from variant-scorer.
+# Threshold is a starting default; the value used per run is recorded in provenance.
+significance:
+  pval_col: abs_logfc_x_jsd.pval
+  pval_threshold: 0.01   # matches the reference sig_variant_summary (p <= 0.01)
+  min_celltypes: 1
+
+# Per-variant attribution plotting (Stage 3.2).
+report:
+  top_n_variants: 20
+  named_loci:
+    - chr1:213977102:T:A
