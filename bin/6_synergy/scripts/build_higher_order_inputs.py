@@ -43,6 +43,8 @@ def main(a):
         raise SystemExit(f"--cwms is missing focus motifs: {missing}")
 
     calls = pd.read_csv(a.calls, sep="\t")
+    # downstream.py emits tf_A/tf_B; the de_synergy-style tables use tfA/tfB. Accept either.
+    calls = calls.rename(columns={"tf_A": "tfA", "tf_B": "tfB"})
     if a.set and "set" in calls.columns:
         calls = calls[calls["set"] == a.set]
     calls = calls[calls.idA.isin(ids) & calls.idB.isin(ids)].copy()
@@ -107,7 +109,7 @@ def main(a):
         for sid, w in nulls:
             tf = tf_lookup.get(sid, sid)
             rows.append({"idA": r.idA, "idB": r.idB, "idC": sid,
-                         "tfA": r.tfA, "tfB": r.tfB, "tfC": tf,
+                         "tfA": tf_of[r.idA], "tfB": tf_of[r.idB], "tfC": tf,
                          "anchor_orient": r.opt_orient, "anchor_gap": r.opt_gap,
                          "anchor_cc": r.opt_center_center,
                          "wa": int(r.wa), "wb": int(r.wb), "wc": w,
