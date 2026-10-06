@@ -115,6 +115,49 @@ is 192 endocrine-only, 268 non-endocrine-only and 200 shared.
 | `explore_signatures.py`, `plot_split.py` | binary lineage signatures, developmental taxonomy, block figures | same |
 | `make_logos.py` | CWM logos for the report | new; logos had been generated ad hoc |
 | `build_report.py` | interactive HTML bundle | same as downstream |
+| `build_higher_order_inputs.py` | focus-set manifests for tracks/triples | generalized from `scratch/2026_09_20_de_higher_order/scripts/build_inputs.py` (was DE-hardwired) |
+| `marginalize_tracks.py`, `tracks_io.py` | profile-head marginalization + track math | `scratch/2026_09_20_de_higher_order` (newer copy of the `2026_08_08_prez` original) |
+| `marginalize_triples.py`, `analyze_triples.py` | 3-way sweep and incremental calling | same |
+| `preflight.py`, `plot_tracks.py`, `plot_distance_curves.py`, `plot_mt_fig4.py` | path/geometry checks and figures | same |
+
+## Higher-order: profile tracks and 3-way synergy
+
+Two extensions that run on a small focus set of TFs after the pairwise sweep has called their
+arrangements. Both reuse `paths.sh`; work dir is `$HO_DIR` (default `$SYN/higher_order`).
+
+**Profile tracks.** The pairwise sweep keeps only counts-head scalars, so no prediction track can
+be reconstructed from it. `marginalize_tracks.py` re-runs chosen arrangements keeping the profile
+head, which is what the stacked +A / +B / Σ / observed figures are drawn from. Track math lives in
+`tracks_io.py`: average the profile in **log** space, renormalize, then scale by
+`exp(mean log-counts)`. Averaging linearly instead lets the few highest-count backgrounds dominate
+and breaks the identity `area(T_motif) / area(T_bg) == exp(delta_logcounts)`.
+
+**3-way synergy.** `marginalize_triples.py` locks a pair at its pairwise optimum and slides a third
+motif on both flanks in both orientations (2 orientations x 2 flanks x gaps, about the cost of one
+pairwise sweep). Calling uses the **incremental** metric
+`delta_incr = dJ_ABC_opt - (dJ_pair + dC)`, with thresholds at the 95th percentile of a matched
+lineage-mismatched 3-way null, floored at the paper's 0.15 / Z 4. This null is matched but small,
+so it is a cruder gate than the pairwise in-matrix null described above.
+
+| # | Step | Where | Command |
+|---|---|---|---|
+| 1 | Build manifests | CPU | `python scripts/build_higher_order_inputs.py --motifs <focus.tsv> --calls <pairwise calls_long.tsv> --cwms <focus cwms.npz> --catalog $CATALOG/metadata.tsv --null_cwms <catalog cwms.npz> -o $HO/inputs` |
+| 2 | Sanity-check paths and geometry | CPU | `python scripts/preflight.py` |
+| 3 | Profile tracks | GPU | `sbatch slurm/run_tracks.sh` |
+| 4 | Triples + matched null | GPU | `sbatch slurm/run_triples.sh` |
+| 5 | Call triples | CPU | `python scripts/analyze_triples.py --triples $HO/results/triples --null $HO/results/null_triples --ct DE -o $HO/tables` |
+| 6 | Figures | CPU | `plot_tracks.py`, `plot_distance_curves.py`, `plot_mt_fig4.py` |
+
+The focus set is an argument, not baked in. `--motifs` takes a TSV of `short_id` and `curator_tf`
+(optionally `curator_category`); the null third motifs are then drawn from the catalog excluding
+anything annotated to one of those TFs, spread evenly across the width distribution so the null is
+not confounded by motif length. The worked example is the four DE TFs (EOMES `ST18`,
+MIXL1 `ST36_sub1`, SOX17 `ST66`, FOXH1 `J_FOXH1`), which gives 12 triples (C(4,3) x 3 anchor
+choices) and a 42-row null (6 heterotypic pairs x 7 nulls).
+
+**Gotcha:** `marginalize_triples.py` takes `--cwms` for the focus motifs and the null run needs a
+catalog-wide npz, because the null third motifs are not in the focus set. The runner keeps these as
+separate variables (`HO_CWMS`, `NULL_CWMS`) for that reason.
 
 ## Existing results
 
