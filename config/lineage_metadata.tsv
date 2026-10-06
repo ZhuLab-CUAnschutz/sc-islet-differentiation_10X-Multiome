@@ -1,0 +1,8 @@
+lineage	color	display_order
+progenitor	#bdbdbd	1
+endocrine_progenitor	#66c2a5	2
+beta	#4a90d9	3
+alpha	#e41a1c	4
+EC	#4daf4a	5
+delta	#ff7f00	6
+non_pancreatic	#8c564b	7
