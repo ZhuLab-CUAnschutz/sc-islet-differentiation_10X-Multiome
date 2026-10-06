@@ -2,7 +2,21 @@
 fastq/
 processed/
 results/
-scratch/
+# scratch/: exploratory analyses. Track the CODE, never the data or environments.
+# Rule order matters: ignore everything, re-admit directories so git can descend, then
+# re-admit code extensions, then re-ignore the heavy things that are also "code"
+# (a .venv is ~2000 .py files; notebook checkpoints are duplicates).
+scratch/**
+!scratch/**/
+!scratch/**/*.py
+!scratch/**/*.sh
+!scratch/**/*.md
+!scratch/**/*.ipynb
+scratch/**/.venv/**
+scratch/**/venv/**
+scratch/**/site-packages/**
+scratch/**/__pycache__/**
+scratch/**/.ipynb_checkpoints/**
 ref/
 data/
 **/slurm_logs/
