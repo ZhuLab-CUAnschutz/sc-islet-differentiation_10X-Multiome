@@ -115,10 +115,45 @@ is 192 endocrine-only, 268 non-endocrine-only and 200 shared.
 | `explore_signatures.py`, `plot_split.py` | binary lineage signatures, developmental taxonomy, block figures | same |
 | `make_logos.py` | CWM logos for the report | new; logos had been generated ad hoc |
 | `build_report.py` | interactive HTML bundle | same as downstream |
+| `build_focus_inputs.py`, `analyze_focus_pairs.py` | focus screen: inserts/manifest, then null-calibrated calls | generalized from `scratch/2026_09_06_de_synergy` (was hardwired to the 4 DE TFs) |
+| `plot_logos.py` | insert logos for a focus set | same |
 | `build_higher_order_inputs.py` | focus-set manifests for tracks/triples | generalized from `scratch/2026_09_20_de_higher_order/scripts/build_inputs.py` (was DE-hardwired) |
 | `marginalize_tracks.py`, `tracks_io.py` | profile-head marginalization + track math | `scratch/2026_09_20_de_higher_order` (newer copy of the `2026_08_08_prez` original) |
 | `marginalize_triples.py`, `analyze_triples.py` | 3-way sweep and incremental calling | same |
 | `preflight.py`, `plot_tracks.py`, `plot_distance_curves.py`, `plot_mt_fig4.py` | path/geometry checks and figures | same |
+
+## Focus screen: a few TFs, one cell type, full fidelity
+
+The all-pairs sweep above runs at first-pass settings (n=32, gaps 0-50). A **focus screen** instead
+takes a handful of TFs and runs them in a single cell type at full fidelity (n=100, gaps 0-200), so
+their pairwise geometry is resolved properly. It is also the step that produces the pairwise calls
+the 3-way pipeline consumes.
+
+| # | Step | Where | Command |
+|---|---|---|---|
+| 1 | Build inserts + pair manifest | CPU | `python scripts/build_focus_inputs.py --spec <focus.tsv> --cwms $CWMS --jaspar_dir <dir> --ct DE -o $FOCUS/inputs` |
+| 2 | Sweep target + matched null | GPU | `FOCUS=$FOCUS CT=DE sbatch slurm/run_focus_pairs.sh` |
+| 3 | Call | CPU | `python scripts/analyze_focus_pairs.py --results $FOCUS/results --null <null summary> --inputs $FOCUS/inputs --ct DE -o $FOCUS/tables` |
+
+The spec is a TSV of `id, tf, source, sets`, where `source` is either `catalog` (take the signed CWM
+verbatim) or a JASPAR matrix id such as `MA0479.1`. `scripts/example_focus_spec_de4.tsv` is the
+worked example: the four DE TFs (EOMES, MIXL1, SOX17, FOXH1) as two sets, one using catalog CWMs
+plus JASPAR FOXH1, the other all-JASPAR. Running the same TFs under two motif representations is
+the point of sets: it shows whether a call survives changing the motif.
+
+**Calling here is not the all-pairs rule.** A focus screen has too few pairs to fit the in-matrix
+empirical null that `downstream.py` uses, so it needs a *matched* lineage-mismatched null run at the
+same fidelity. Thresholds are that null's 95th percentile, floored at the paper's 0.15 / Z 4:
+`synergistic = delta > d_thresh & wilcoxon_p < 1e-3`, `hard = synergistic & maxZ > z_thresh`.
+Pass `--firstpass <all-pairs calls_long.tsv>` to carry the sweep's call for the same pairs alongside,
+as a cross-check.
+
+`analyze_focus_pairs.py` writes `calls_long.tsv` in the schema `build_higher_order_inputs.py` reads,
+so a focus screen feeds straight into the triples pipeline.
+
+**Gotcha:** within a set, A/B order follows spec row order, and A is placed upstream, so that order
+fixes the orientation labels and the npz filenames. To line up with an existing run, pass
+`--orient_like <its pairs_by_set.tsv>` (same idea as `build_pair_manifest.py --orient_like`).
 
 ## Higher-order: profile tracks and 3-way synergy
 
